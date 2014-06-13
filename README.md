@@ -4,27 +4,34 @@ codeigniter_hmvc_kickstart
 Codeigniter hmvc kickstart, support multi themes
 
 @author: Sinh Quan
+
 @email: qvsinh@gmail.com, sinhqv@hotmail.com
+
 @description: Some notes when you using this codeigniter kickstar
-________________________________________________________________________________
+_______________________________________________________
 
 Username and password to login: qvsinh@gmail.com/012345678 
+
 You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.php
 
 
 1. routes: http://localhost/mycq/module_name/controller_name/function_name
 
-You can rerouts in: config/routes.php
-Example:
-    //auth module
-    $route['register'] = "auth/register/index"; => http://localhost/ci_hmvc_kickstart/register
-    $route['register'] = "module_name/controller_name/function_name";
+    You can rerouts in: config/routes.php
+
+    Example:
+
+        //auth module
+        $route['register'] = "auth/register/index"; => http://localhost/ci_hmvc_kickstart/register
+        $route['register'] = "module_name/controller_name/function_name";
 
 2. Using global var:
+
     ci_hmvc_kickstart/application/core/Frontend_Controller.php
     
     PHP:   
-        $this->global_var can be call from any where in controller, call it in view by $view['global_var']
+        $this->global_var 
+        can be call from any where in controller, call it in view by $view['global_var']
 
     Javascript:
         global_var is global in javascript, it assigned by $this->global_var
@@ -38,56 +45,60 @@ Example:
 
     You can use follow code to add assets file in controler
     
-    //Automatic set js or css by file extension
-    $this->template->add_asset('base.js'); 
-    $this->template->add_asset('style.css');
+        //Automatic set js or css by file extension
+        $this->template->add_asset('base.js'); 
+        $this->template->add_asset('style.css');
 
     //can be use like this
-    $this->template->add_asset('http://maps.google.com/maps/api/js?sensor=true'); 
-
+        $this->template->add_asset('http://maps.google.com/maps/api/js?sensor=true'); 
 
 4. layout
-    You can create many layout as you wish
-    themes/themes_name/layout/default_layout.php is main layout,
-    themes/themes_name/layout/public_layout.php
 
-    
+    You can create many layout as you wish
+        themes/themes_name/layout/default_layout.php is main layout,
+        themes/themes_name/layout/public_layout.php
 
 5. Run other modules
-    $view = Modules::run('post/feed/index');
-    $view = Modules::run('ten_module/ten_controller/ten_function');
-    //return html to $view variable
+        $view = Modules::run('post/feed/index');
+        $view = Modules::run('ten_module/ten_controller/ten_function');
+        //return html to $view variable
 
 6. template
+    
     All view file should be have prefix: v, it will be ease to know which is controler or view if you open multi docs in IDE
+    
     Ex: login.php is controler, vlogin.php is view
     
     Assign a variable from controler to view
-    $this->template->set('member', $arr_member_info);
+
+        $this->template->set('member', $arr_member_info);
 
     To set html Title and Description or Keyword meta tag
-    $this->template->set_title("CI hmvc kick start with multi themes support");
-    $this->template->set_description("CI hmvc kick start with multi themes support");
-    $this->template->set_keyword("CI hmvc kick start with multi themes support");
+        $this->template->set_title("CI hmvc kick start with multi themes support");
+        $this->template->set_description("CI hmvc kick start with multi themes support");
+        $this->template->set_keyword("CI hmvc kick start with multi themes support");
 
     To change layout in controller:(default is default_layout)
-    $this->template->set_layout("public_layout");
+        $this->template->set_layout("public_layout");
 
     //Automatic set js or css by file extension
-    $this->template->add_asset('base.js'); 
-    $this->template->add_asset('style.css');
+        $this->template->add_asset('base.js'); 
+        $this->template->add_asset('style.css');
 
     Call view in controller
-    $this->template->view('auth/vlogin');
-    $this->template->view('module_name/view_file_name_with_no_extension');
+        $this->template->view('auth/vlogin');
+        $this->template->view('module_name/view_file_name_with_no_extension');
 
 7. SQL should be in clear, easy to read
     Ex: 
+
         $sql = "SELECT * 
             FROM $this->tbl_name 
             WHERE 1  
             ORDER BY id DESC LIMIT $offset, $limit";
-
         $p_result = $this->db->query($sql)->result_array();
 
     Just using $this->db->query($sql) to get database result.
+
+
+
