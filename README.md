@@ -59,12 +59,12 @@ You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.ph
         themes/themes_name/layout/public_layout.php
 
 5. Run other modules
+
         $view = Modules::run('post/feed/index');
         $view = Modules::run('ten_module/ten_controller/ten_function');
         //return html to $view variable
 
 6. template
-    
     All view file should be have prefix: v, it will be ease to know which is controler or view if you open multi docs in IDE
     
     Ex: login.php is controler, vlogin.php is view
@@ -74,18 +74,22 @@ You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.ph
         $this->template->set('member', $arr_member_info);
 
     To set html Title and Description or Keyword meta tag
+    
         $this->template->set_title("CI hmvc kick start with multi themes support");
         $this->template->set_description("CI hmvc kick start with multi themes support");
         $this->template->set_keyword("CI hmvc kick start with multi themes support");
 
     To change layout in controller:(default is default_layout)
+    
         $this->template->set_layout("public_layout");
 
     //Automatic set js or css by file extension
+    
         $this->template->add_asset('base.js'); 
         $this->template->add_asset('style.css');
 
     Call view in controller
+    
         $this->template->view('auth/vlogin');
         $this->template->view('module_name/view_file_name_with_no_extension');
 
