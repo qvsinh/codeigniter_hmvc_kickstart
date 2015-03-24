@@ -50,6 +50,7 @@ You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.ph
         $this->template->add_asset('style.css');
 
     //can be use like this
+    
         $this->template->add_asset('http://maps.google.com/maps/api/js?sensor=true'); 
 
 4. layout
@@ -93,7 +94,7 @@ You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.ph
         $this->template->view('auth/vlogin');
         $this->template->view('module_name/view_file_name_with_no_extension');
 
-7. SQL should be in clear, easy to read
+7. SQL should be in clear, easy to read and understand
     Ex: 
 
         $sql = "SELECT * 
@@ -102,7 +103,9 @@ You can change this in ci_hmvc_kickstart/admin/modules/auth/models/auth_model.ph
             ORDER BY id DESC LIMIT $offset, $limit";
         $p_result = $this->db->query($sql)->result_array();
 
-    Just using $this->db->query($sql) to get database result.
+    Just using 
+    
+        $this->db->query($sql) to get database result.
 
 
 
